@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Shield Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo-container">
+        <img src="icons/icon48.png" alt="Privacy Shield logo" class="logo">
+        <h1>Privacy Shield Dashboard</h1>
+      </div>
+      <div class="header-stats">
+        <div class="stat-box">
+          <span class="stat-value" id="total-fingerprinting">0</span>
+          <span class="stat-label">Fingerprinting Attempts</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value" id="total-cookies">0</span>
+          <span class="stat-label">Tracking Cookies</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value" id="total-sites">0</span>
+          <span class="stat-label">Sites Monitored</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value" id="total-blocked">0</span>
+          <span class="stat-label">Trackers Blocked</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="dashboard-grid">
+      <!-- First row: Protection Settings -->
+      <section class="data-card full-width">
+        <h2>Protection Settings</h2>
+        <div class="settings-container">
+          <div class="setting-item">
+            <label class="toggle">
+              <input type="checkbox" id="block-fingerprinting" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <div class="setting-description">
+              <h3>Block Fingerprinting</h3>
+              <p>Detect and block browser fingerprinting attempts</p>
+            </div>
+          </div>
+          
+          <div class="setting-item">
+            <label class="toggle">
+              <input type="checkbox" id="block-cookies" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <div class="setting-description">
+              <h3>Block Tracking Cookies</h3>
+              <p>Detect and block third-party tracking cookies</p>
+            </div>
+          </div>
+          
+          <div class="setting-item">
+            <label class="toggle">
+              <input type="checkbox" id="show-notifications" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <div class="setting-description">
+              <h3>Show Notifications</h3>
+              <p>Display notifications when trackers are detected</p>
+            </div>
+          </div>
+        </div>
+        <div class="save-status" id="save-status"></div>
+      </section>
+
+      <!-- Second row: Fingerprinting Techniques and Top Tracking Domains charts -->
+      <section class="data-card">
+        <h2>Fingerprinting Techniques</h2>
+        <div class="chart-container">
+          <canvas id="fingerprintingTypesChart"></canvas>
+        </div>
+      </section>
+
+      <section class="data-card">
+        <h2>Top Tracking Domains</h2>
+        <div class="chart-container">
+          <canvas id="topDomainsChart"></canvas>
+        </div>
+      </section>
+
+      <!-- Third row: Fingerprinting Attempts table -->
+      <section class="data-card full-width">
+        <h2>Fingerprinting Attempts</h2>
+        <div class="table-container">
+          <table id="fingerprinting-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Technique</th>
+                <th>Time</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Fourth row: Cookie Purposes chart and Tracking Cookies table -->
+      <section class="data-card">
+        <h2>Cookie Purposes</h2>
+        <div class="chart-container">
+          <canvas id="cookiePurposesChart"></canvas>
+        </div>
+      </section>
+
+      <section class="data-card">
+        <h2>Tracking Cookies</h2>
+        <div class="table-container">
+          <table id="cookies-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Purpose</th>
+                <th>Count</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Fifth row: Sites Monitored table -->
+      <section class="data-card full-width">
+        <h2>Sites Monitored</h2>
+        <div class="table-container">
+          <table id="sites-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Fingerprinting</th>
+                <th>Cookies</th>
+                <th>Last Detected</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    
+    <div class="actions-container">
+      <button id="export-json" class="button">Export Data (JSON)</button>
+      <button id="export-csv" class="button">Export Data (CSV)</button>
+      <button id="clear-data" class="button warning">Clear All Data</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Privacy Shield &copy; 2025 - Enhanced Privacy Protection</p>
+  </footer>
+
+  <script src="chart.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="dashboard-init.js"></script>
+</body>
+</html>

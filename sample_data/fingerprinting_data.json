@@ -1,0 +1,72 @@
+[
+  {
+    "technique": "Canvas Fingerprinting",
+    "domain": "example.com",
+    "timestamp": "2025-05-10T15:23:45.123Z",
+    "url": "https://example.com/path",
+    "blocked": true
+  },
+  {
+    "technique": "WebGL Fingerprinting",
+    "domain": "example.com",
+    "timestamp": "2025-05-10T15:24:12.456Z",
+    "url": "https://example.com/path",
+    "blocked": true
+  },
+  {
+    "technique": "Font Enumeration",
+    "domain": "advertising.com",
+    "timestamp": "2025-05-10T16:12:34.789Z",
+    "url": "https://advertising.com/tracker",
+    "blocked": true
+  },
+  {
+    "technique": "Canvas Fingerprinting",
+    "domain": "advertising.com",
+    "timestamp": "2025-05-10T16:13:45.123Z",
+    "url": "https://advertising.com/tracker",
+    "blocked": false
+  },
+  {
+    "technique": "Navigator Enumeration",
+    "domain": "tracker.net",
+    "timestamp": "2025-05-10T17:34:56.789Z",
+    "url": "https://tracker.net/script.js",
+    "blocked": true
+  },
+  {
+    "technique": "Canvas Fingerprinting",
+    "domain": "tracker.net",
+    "timestamp": "2025-05-10T17:35:12.345Z",
+    "url": "https://tracker.net/script.js",
+    "blocked": true
+  },
+  {
+    "technique": "WebGL Fingerprinting",
+    "domain": "analytics.io",
+    "timestamp": "2025-05-10T18:23:45.678Z",
+    "url": "https://analytics.io/collect",
+    "blocked": false
+  },
+  {
+    "technique": "Audio Fingerprinting",
+    "domain": "analytics.io",
+    "timestamp": "2025-05-10T18:24:12.345Z",
+    "url": "https://analytics.io/collect",
+    "blocked": true
+  },
+  {
+    "technique": "Hardware Enumeration",
+    "domain": "ads.example.com",
+    "timestamp": "2025-05-10T19:12:34.567Z",
+    "url": "https://ads.example.com/track",
+    "blocked": true
+  },
+  {
+    "technique": "Canvas Fingerprinting",
+    "domain": "ads.example.com",
+    "timestamp": "2025-05-10T19:13:45.678Z",
+    "url": "https://ads.example.com/track",
+    "blocked": true
+  }
+]

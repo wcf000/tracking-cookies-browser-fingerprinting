@@ -1,0 +1,378 @@
+:root {
+  --primary-color: #3a7bd5;
+  --primary-dark: #2c65b5;
+  --secondary-color: #00d2ff;
+  --text-color: #333;
+  --text-light: #666;
+  --light-gray: #f5f5f5;
+  --border-color: #ddd;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --danger-color: #e74c3c;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.header-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.stat-box {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Update the dashboard grid to better handle full-width cards */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Adjust the spacing between rows */
+.dashboard-grid > section {
+  margin-bottom: 1.5rem;
+}
+
+.full-width {
+  grid-column: 1 / -1; /* Span all columns */
+}
+
+/* Add some padding between rows */
+.dashboard-grid > section:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.data-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+/* Adjust the table containers in half-width sections */
+.data-card:not(.full-width) .table-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+  font-size: 1.3rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+/* Make sure charts have enough space */
+.chart-container {
+  height: 300px;
+  position: relative;
+  margin-top: 1rem;
+}
+
+/* Make sure all charts have consistent height */
+.chart-container {
+  height: 300px;
+  position: relative;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.chart-grid h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.table-container {
+  overflow-x: auto;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Ensure the table headers stay fixed when scrolling */
+.data-card:not(.full-width) .table-container thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--light-gray);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Add these styles to your dashboard.css */
+.domain-separator {
+  height: 10px;
+  background-color: #f5f5f5;
+}
+
+tr.domain-separator td {
+  padding: 0;
+}
+
+/* Make the tooltip more noticeable */
+.tooltip {
+  font-size: 12px;
+  color: #666;
+  margin-top: 3px;
+  font-style: italic;
+  display: none;
+}
+
+td:hover .tooltip {
+  display: block;
+}
+
+.settings-container {
+  margin-top: 1rem;
+}
+
+.setting-item {
+  display: flex;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  margin-right: 1rem;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 26px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--primary-color);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+.setting-description h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.setting-description p {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.save-status {
+  color: var(--success-color);
+  font-weight: bold;
+  height: 1.5rem;
+  text-align: center;
+}
+
+.actions-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.button {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.button:hover {
+  background-color: var(--primary-dark);
+}
+
+.button.warning {
+  background-color: var(--danger-color);
+}
+
+.button.warning:hover {
+  background-color: #c0392b;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--light-gray);
+  color: var(--text-light);
+  font-size: 0.8rem;
+  margin-top: 2rem;
+}
+
+/* Status indicators */
+.status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.status-blocked {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.status-allowed {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-stats {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .actions-container {
+    flex-direction: column;
+  }
+  
+  .button {
+    width: 100%;
+  }
+  
+  .full-width {
+    grid-column: auto;
+  }
+}

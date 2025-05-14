@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Shield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>
+      <img src="icons/icon48.png" alt="Privacy Shield" class="logo">
+      Privacy Shield
+    </h1>
+  </header>
+  
+  <div class="stats-container">
+    <div class="stat-box">
+      <h2>Current Page</h2>
+      <div id="current-domain">Loading...</div>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <span class="stat-value" id="current-fingerprinting">0</span>
+          <span class="stat-label">Fingerprinting</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="current-cookies">0</span>
+          <span class="stat-label">Tracking Cookies</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="stat-box">
+      <h2>Total Detected</h2>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <span class="stat-value" id="total-fingerprinting">0</span>
+          <span class="stat-label">Fingerprinting</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="total-cookies">0</span>
+          <span class="stat-label">Tracking Cookies</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="total-blocked">0</span>
+          <span class="stat-label">Blocked</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="settings-container">
+    <h2>Protection Settings</h2>
+    <div class="setting-item">
+      <label class="toggle">
+        <input type="checkbox" id="block-fingerprinting" checked>
+        <span class="toggle-slider"></span>
+      </label>
+      <span class="setting-label">Block Fingerprinting</span>
+    </div>
+    <div class="setting-item">
+      <label class="toggle">
+        <input type="checkbox" id="block-cookies" checked>
+        <span class="toggle-slider"></span>
+      </label>
+      <span class="setting-label">Block Tracking Cookies</span>
+    </div>
+    <div class="setting-item">
+      <label class="toggle">
+        <input type="checkbox" id="show-notifications" checked>
+        <span class="toggle-slider"></span>
+      </label>
+      <span class="setting-label">Show Notifications</span>
+    </div>
+    
+    <div class="save-status" id="save-status"></div>
+  </div>
+  
+  <div class="action-buttons">
+    <button id="dashboard-button" class="button primary">View Dashboard</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
